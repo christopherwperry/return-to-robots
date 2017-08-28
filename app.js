@@ -35,7 +35,6 @@ app.use('/skill/:skill', function (req, res) {
   MongoClient.connect(mongoURL, function (err, db) {
     skill = req.params.skill;
     const robots = db.collection('robots');
-    console.log(robots.find({skills: {$in: [skill]}}).toArray());
     robots.find({skills: {$in: [skill]}}).toArray(function (err, users) {
       res.render("index", {robots: users, skill})
     })
