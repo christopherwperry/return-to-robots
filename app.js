@@ -30,32 +30,34 @@ app.use('/forhire', function (req, res) {
   })
 })
 
+
+app.use('/skill/:skill', function (req, res) {
+  MongoClient.connect(mongoURL, function (err, db) {
+    skill = req.params.skill;
+    const robots = db.collection('robots');
+    console.log(robots.find({skills: {$in: [skill]}}).toArray());
+    robots.find({skills: {$in: [skill]}}).toArray(function (err, users) {
+      res.render("index", {robots: users, skill})
+    })
+  })
+})
+
+app.use('/country/:country', function (req, res) {
+  MongoClient.connect(mongoURL, function (err, db) {
+    country = req.params.country;
+    const robots = db.collection('robots');
+    robots.find({"address.country": country}).toArray(function (err, users) {
+      res.render("index", {robots: users, country})
+    })
+  })
+})
+
 app.use('/:user', function (req, res) {
   MongoClient.connect(mongoURL, function (err, db) {
     user = req.params.user;
     const robots = db.collection('robots');
     robots.find({username: user}).toArray(function (err, users) {
       res.render("id", {robots: users})
-    })
-  })
-})
-
-app.use('/:skill', function (req, res) {
-  MongoClient.connect(mongoURL, function (err, db) {
-    skill = req.params.skill;
-    const robots = db.collection('robots');
-    robots.find({skills: {$in: [skill]}}).toArray(function (err, users) {
-      res.render("index", {robots: users})
-    })
-  })
-})
-
-app.use('/:country', function (req, res) {
-  MongoClient.connect(mongoURL, function (err, db) {
-    country = req.params.country;
-    const robots = db.collection('robots');
-    robots.find({"address.country": country}).toArray(function (err, users) {
-      res.render("index", {robots: users})
     })
   })
 })

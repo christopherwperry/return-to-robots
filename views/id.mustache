@@ -17,7 +17,7 @@
       {{address.city}},
       {{/address.city}}
       {{#address.country}}
-        <a href="http://localhost:3000/{{address.country}}">{{address.country}}</a>
+        <a href="http://localhost:3000/country/{{address.country}}">{{address.country}}</a>
       {{/address.country}}
 
 
@@ -40,7 +40,7 @@
           <td><strong>Skills:</strong></td>
           <td>
           {{#skills}}
-          <a href="http://localhost:3000/{{.}}">{{.}}</a>
+          <a href="http://localhost:3000/skill/{{.}}">{{.}}</a>
           <br>
           {{/skills}}
           </td>
