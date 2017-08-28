@@ -40,9 +40,25 @@ app.use('/:user', function (req, res) {
   })
 })
 
-// app.get('/users/:id', function(req, res){
-//   position = req.params.id - 1;
-//   res.render('id', data.users[position]);});
+app.use('/:skill', function (req, res) {
+  MongoClient.connect(mongoURL, function (err, db) {
+    skill = req.params.skill;
+    const robots = db.collection('robots');
+    robots.find({skills: {$in: [skill]}}).toArray(function (err, users) {
+      res.render("index", {robots: users})
+    })
+  })
+})
+
+app.use('/:country', function (req, res) {
+  MongoClient.connect(mongoURL, function (err, db) {
+    country = req.params.country;
+    const robots = db.collection('robots');
+    robots.find({"address.country": country}).toArray(function (err, users) {
+      res.render("index", {robots: users})
+    })
+  })
+})
 
 app.use('/', function (req, res) {
   MongoClient.connect(mongoURL, function (err, db) {
