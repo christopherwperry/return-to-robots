@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    {{#robots}}
+    <div class="user-profile">
+      <img src="{{avatar}}" alt="">
+      <h1 class="user-name">{{name}}</h1>
+      <div class="city">
+      {{#address.city}}
+      {{address.city}},
+      {{/address.city}}
+      {{#address.country}}
+      {{address.country}}
+      {{/address.country}}
+      </div>
+      {{#job}}
+      <div class="job"> {{job}}, {{company}}</div>
+      {{/job}}
+      {{^job}}
+      <div class="no-job">Available for hire</div>
+      {{/job}}
+      <div class="email">{{email}} | {{phone}}</div>
+      <table>
+        {{#university}}
+        <tr>
+          <td><strong>Education:</strong></td>
+          <td>{{university}}</td>
+        </tr>
+        {{/university}}
+        <tr>
+          <td><strong>Skills:</strong></td>
+          <td>
+          {{#skills}}
+          {{.}}<br>
+          {{/skills}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    {{/robots}}
+  </body>
+</html>

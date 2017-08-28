@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Robots With Mongo</title>
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <h1>User Directory</h1>
+    <a href="http://localhost:3000/forhire">Robots for Hire</a>
+    <a href="http://localhost:3000/employed">Employed Robots</a>
+    <div class="user-profiles">
+      {{#robots}}
+      <div class="user">
+        <img src="{{avatar}}" alt="No Image Available"><br>
+        <a class="name" href="http://localhost:3000/{{username}}">{{name}}</a>
+        {{#job}}
+        <p class="job">{{job}}, {{company}}</p>
+        {{/job}}
+        {{^job}}
+        <p class="no-job">Available for hire</p>
+        {{/job}}
+      </div>
+      {{/robots}}
+    </div>
+
+  </body>
+</html>

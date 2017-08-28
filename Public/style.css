@@ -1,0 +1,91 @@
+body {
+  text-align: center;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+}
+
+h1 {
+  font-size: 46px;
+  color: #2660C3
+}
+
+a {
+  margin: 2%;
+  margin-top: 0;
+}
+
+.user-name {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.user-profiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  justify-content: space-between;
+}
+
+.user {
+  width: 20vw;
+  border: solid 1px black;
+  margin-bottom: 2vh;
+  background-color: #fff;
+  border-radius: 5%;
+}
+
+.no-job {
+  color: #A1000B;
+}
+
+a {
+  font-size: 24px;
+  color: #2660C3;
+}
+
+.user-profile {
+  margin-top: 10vh;
+  margin-right: 25vw;
+  margin-left: 25vw;
+  width: 50vw;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5%;
+}
+
+.user-profile img {
+  margin-top: 3vh;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.job, .no-job {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+table {
+  margin-top: 2vh;
+  width: 30vw;
+  margin-right: 10vw;
+  margin-left: 10vw;
+  margin-bottom: 2vh;
+}
+
+tr {
+  margin-top: 2vh;
+}
+
+td {
+  vertical-align: top;
+}
